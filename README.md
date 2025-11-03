@@ -124,3 +124,18 @@ If you don't have an OpenAI API key, you can get one [here](https://platform.ope
 ## Contact
 
 If you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/mckaywrigley).
+
+Prometheus Setup
+- job_name: "jenkins"
+
+  # metrics_path defaults to '/prometheus'
+  # scheme defaults to 'http'.
+  metrics_path: '/prometheus'
+  scheme: http
+
+  static_configs:
+    - targets: ["18.171.234.57:8080"]
+      # The label name is added as a label `label_name=<label_value>` to any timeseries scraped from this config.
+      labels:
+        app: "jenkins"
+
